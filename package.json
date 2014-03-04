@@ -1,0 +1,29 @@
+{
+  "name": "strip_attachments_vdsdata_tracking",
+  "version": "0.0.1",
+  "description": "Strip attachments from vdsdata/tracking database, because they make it too big",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmarca/strip_attachments_vdsdata_tracking"
+  },
+  "keywords": [
+    "couchdb",
+    "vds",
+    "calvad"
+  ],
+  "author": "James E. Marca",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jmarca/strip_attachments_vdsdata_tracking/issues"
+  },
+  "homepage": "https://github.com/jmarca/strip_attachments_vdsdata_tracking",
+  "dependencies": {
+    "follow": "^0.10.4",
+    "lodash": "^2.4.1",
+    "couchdb_put_doc": "git://github.com/jmarca/couchdb_put_doc.git"
+  }
+}
