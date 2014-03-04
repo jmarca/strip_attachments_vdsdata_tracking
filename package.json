@@ -27,6 +27,7 @@
     "couchdb_put_doc": "git://github.com/jmarca/couchdb_put_doc.git",
     "kue": "^0.7.5",
     "async": "~0.2.10",
-    "should": "~3.1.3"
+    "should": "~3.1.3",
+    "cluster": "^0.7.7"
   }
 }
