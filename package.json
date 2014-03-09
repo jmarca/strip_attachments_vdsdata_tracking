@@ -28,6 +28,7 @@
     "kue": "git://github.com/jmarca/kue.git#feature/ttl",
     "async": "~0.2.10",
     "should": "~3.1.3",
-    "cluster": "^0.7.7"
+    "cluster": "^0.7.7",
+    "config_okay": "0.0.2"
   }
 }
