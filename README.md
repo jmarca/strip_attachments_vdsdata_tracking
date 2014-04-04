@@ -99,3 +99,10 @@ having an "attachment_db" field that tells you where to find those
 binary document attachments.  Theoretically (I haven't tried it) you
 can get a doc from the skim database, and then download the
 attachments from the fat database using this information.
+
+When you run this program, it will process all of the jobs that are in
+the kue/redis database, and then quit.  It will automatically spawn as
+many workers as there are CPUs on your machine.  Actually, looking at
+the code I have no idea if it will quit, or if it will just hang about
+waiting for new jobs.  I think it might actually just wait, as there
+isn't any sort of listener for when the job queue is drained.
