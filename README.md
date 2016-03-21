@@ -23,7 +23,7 @@ obviously):
 ```JSON
 {
     "fat": {
-        "url": "http://192.168.0.1",
+        "url": "http://127.0.0.1",
         "port":5984,
         "auth":{"username":"james",
                 "password":"correct horse battery staple"
@@ -106,3 +106,73 @@ many workers as there are CPUs on your machine.  Actually, looking at
 the code I have no idea if it will quit, or if it will just hang about
 waiting for new jobs.  I think it might actually just wait, as there
 isn't any sort of listener for when the job queue is drained.
+
+
+# Finishing up
+
+When you are done processing all of the changes, you will have a live
+kue server, a live follower, and a live handler all sitting there
+waiting to do their thing.
+
+But at some point the server will need to be restarted, or for some
+other reason these jobs will have to be stopped.
+
+In order to not repeat past work, take a look at the latest change id
+processed.  For example, in the output I'm looking at now, I see:
+
+```
+removed completed job #90923
+removed completed job #90924
+removed completed job #90924
+1334946
+removed completed job #90924
+removed completed job #90924
+removed completed job #90924
+removed completed job #90924
+removed completed job #90926
+removed completed job #90926
+removed completed job #90925
+removed completed job #90926
+removed completed job #90926
+removed completed job #90925
+removed completed job #90926
+removed completed job #90925
+removed completed job #90926
+removed completed job #90925
+removed completed job #90927
+removed completed job #90927
+removed completed job #90927
+removed completed job #90927
+removed completed job #90928
+removed completed job #90928
+removed completed job #90928
+removed completed job #90928
+removed completed job #90928
+removed completed job #90929
+removed completed job #90929
+removed completed job #90929
+```
+
+Double checking with the couchdb database vdsdata%2ftracking, it is
+indeed the case that the most recent change id is 1334946.  So to make
+that the starting point for the *next* run of this program, add it to
+the config.json file as follows:
+
+
+```
+    "fat": {
+        "url": "http://127.0.0.1",
+        "port":5984,
+        "auth":{"username":"james",
+                "password":"correct horse battery staple"
+               },
+        "since":1334946,
+        "db":"vdsdata%2ftracking"
+ ...
+```
+
+Then the next time you start up the program, it will start where it
+left off.
+
+Super pleased that almost 2 years after the last time I ran this, it
+still runs fine.
