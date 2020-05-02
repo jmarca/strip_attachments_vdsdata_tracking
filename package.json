@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/jmarca/strip_attachments_vdsdata_tracking",
   "dependencies": {
-    "follow": "^0.10.4",
+    "follow": "^0.12.1",
     "lodash": "",
     "couchdb_put_doc": "git://github.com/jmarca/couchdb_put_doc.git",
       "kue": "",
